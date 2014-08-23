@@ -1,8 +1,6 @@
----
-title: "Code Book - Course Project"
-output: html_document
----
 
+Code Book - Course Project
+========================================================
 The tidy data set contains 180 observations from 68 variables, where each observation corresponds to a subject while performing some activity. Besides the identification for subject and activity, there are 66 averages of measurements produced from the sensor signals taken during each experiment. The names of these measurements follow this pattern:
 
 * "mean.of", to indicate that they are means of some measurement.
