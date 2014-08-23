@@ -5,7 +5,7 @@ Getting and Cleaning Data - Course Project
 ## Synopsis
 The purpose of this project is to collect, work with, and clean a data set. The goal is to prepare a tidy data set that can be used for later analysis.
 
-We will be working with data collected from the accelerometers from the Samsung Galaxy S smartphone. A full description is available at the [site](http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones) where the data was obtained. The data file can also be download from the course [site](https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip) as a zip archive.
+We will be working with data collected from the accelerometers from the Samsung Galaxy S smartphone. A full description is available at the [site](http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones) where the data was obtained. The data file can also be downloaded from the course [site](https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip) as a zip archive.
 
 These are the tasks required for this project:
 
@@ -16,9 +16,9 @@ These are the tasks required for this project:
 * Create a second, independent tidy data set with the average of each variable for each activity and each subject. 
 
 ## Data Processing
-The script run_analysis.R contains all the R commands used to arrive from the raw data to the tidy data submitted for this project. The script assumes that the raw data file has already been downloaded to the working directory and unzipped.
+The script [run_analysis.R](https://github.com/amabelster/datasciencecoursera/blob/master/run_analysis.R) contains all the R commands used to arrive from the raw data to the tidy data submitted for this project. The script assumes that the raw data file has already been downloaded to the working directory and unzipped.
 
-First the script reads all the files needed for processing the data. There are three files each for training and test data: a **subject** file that contains the subject identifier for the subject participating in each experiment; a **X** file that contains 561 measurements produced from sensor signals during each experiment; and a **y** file that contains the activity identifier for the activity being performed during each experiment. There is also a file **features** with the description of the features measured in each observation, plus another file **activity_labels** with labels for the activities.
+First the script reads all the files needed for processing the data. There are three files each for training and test data: a **subject** file that contains the subject identifier for the subject participating in each experiment; a **X** file that contains 561 measurements produced from sensor signals during each experiment; and a **y** file that contains the activity identifier for the activity being performed during each experiment. There is also a file **features.txt** with the description of the features measured in each observation, plus another file **activity_labels.txt** with labels for the activities.
 
 Since the files have no column names, the data are read into R as generic variables (V1, V2, and so on), so the script also has to give them proper names (using the features description for the measurements in the **X** files) before beginning to process the data.
 
@@ -28,7 +28,7 @@ Next the script subsets (using grep with regular expressions) the measurements o
 
 The following step in the data processing is to use descriptive names for the activities in the data set. The script does this by converting the **activity** variable to factor, and using the labels read from the file **activity_labels.txt** to label the levels of the factor variable.
 
-After that the script modifies the names of the measurements in the data set to make them more descriptive, using gsub and regular expressions. I have chosen to write variable names with lower case letters and words separated with dots. I think that the names are very readable in this form, and recently discovered that it is the naming convention used at [Google](https://google-styleguide.googlecode.com/svn/trunk/Rguide.xml). The cleaning process follows these steps:
+After that the script modifies the names of the measurements in the data set to make them more descriptive, using gsub and regular expressions. I have chosen to write variable names with lower case letters and words separated with dots. I have always thought that the names are very readable in this form, and recently I discovered that it is the naming convention used at [Google](https://google-styleguide.googlecode.com/svn/trunk/Rguide.xml). The cleaning process follows these steps:
 
 * Remove punctuation (dashes and parenthesis).
 * Replace the prefixes "t" and "f" by "time." and "freq.", respectively.
